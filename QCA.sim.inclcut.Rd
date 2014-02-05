@@ -1,5 +1,5 @@
-\name{fsQCA.sim.inclcut}
-\alias{fsQCA.sim.inclcut}
+\name{QCA.sim.inclcut}
+\alias{QCA.sim.inclcut}
 \title{
 QCA Sufficiency Inclusion Score Simulation
 }
@@ -7,7 +7,7 @@ QCA Sufficiency Inclusion Score Simulation
 Returns QCA results for a given minimum frequency threshold across an arbitrarily large set of sufficiency inclusion scores
 }
 \usage{
-fsQCA.sim.inclcut(data, outcome, conditions=NULL, 
+QCA.sim.inclcut(data, outcome, conditions=NULL, 
     min.incl.cut, max.incl.cut, n.cut, reps, ...)
 }
 \arguments{
@@ -30,10 +30,10 @@ protest.data<-read.csv(file="http://philhoward.org/wp-content/
     uploads/2012/11/International-Studies-Review-Replication-Data.csv")
 protest.data<-protest.data[,!colnames(protest.data) %in% "Country"]
 
-fsQCA.sim.inclcut(data=protest.data, outcome="success", 
+QCA.sim.inclcut(data=protest.data, outcome="success", 
     min.incl.cut=0, max.incl.cut=1, n.cut=1, reps=100)
 
-fsQCA.sim.inclcut(data=protest.data, outcome="success", 
+QCA.sim.inclcut(data=protest.data, outcome="success", 
     conditions=c("mobile", "fuel"), min.incl.cut=0, 
     max.incl.cut=1, n.cut=1, reps=100)
 

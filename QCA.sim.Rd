@@ -1,5 +1,5 @@
-\name{fsQCA.sim}
-\alias{fsQCA.sim}
+\name{QCA.sim}
+\alias{QCA.sim}
 \title{
 QCA Sufficiency Inclusion Score & Minimum Frequency Threshold Simulation
 }
@@ -7,9 +7,9 @@ QCA Sufficiency Inclusion Score & Minimum Frequency Threshold Simulation
 Returns QCA results for a range of minimum frequency thresholds across an arbitrarily large set of sufficiency inclusion scores
 }
 \usage{
-fsQCA.sim(data, outcome, conditions=NULL, 
+QCA.sim(data, outcome, conditions=NULL, 
     min.incl.cut, max.incl.cut, min.n.cut, 
-    max.n.cut, reps, plot.legend, ...)
+    max.n.cut, reps, plot, plot.legend, ...)
 }
 \arguments{
   \item{data}{an object of class 'data.frame'}
@@ -20,6 +20,7 @@ fsQCA.sim(data, outcome, conditions=NULL,
   \item{min.n.cut}{numeric lower bound for minimum frequency thresholds}
   \item{max.n.cut}{numeric upper bound for minimum frequency thresholds}  
   \item{reps}{number of sufficiency inclusion score pairs to be sampled}
+  \item{plot}{if TRUE, plot solutions}
   \item{plot.legend}{"solutions" indicates plot legend should contain actual unique solutions; "ids" indicates plot should contain numeric identifiers for unique solutions; "none" indicates plot should not contain a legend}
   \item{...}{optional arguments passed to \code{eqmcc()}}
 }
@@ -35,12 +36,12 @@ protest.data<-read.csv(file="http://philhoward.org/wp-content/
     uploads/2012/11/International-Studies-Review-Replication-Data.csv")
 protest.data<-protest.data[,!colnames(protest.data) %in% "Country"]
 
-fsQCA.sim(data=protest.data, outcome="success", 
+QCA.sim(data=protest.data, outcome="success", 
     min.incl.cut=0, max.incl.cut=1, min.n.cut=1, 
-    max.n.cut=4, reps=100, plot.legend="ids")
+    max.n.cut=4, reps=100, plot=TRUE, plot.legend="ids")
     
-fsQCA.sim(data=protest.data, outcome="success", 
+QCA.sim(data=protest.data, outcome="success", 
     conditions=c("mobile", "fuel"), min.incl.cut=0, 
     max.incl.cut=1, min.n.cut=1, max.n.cut=4, reps=100, 
-    plot.legend="ids")
+    plot=TRUE, plot.legend="ids")
 }

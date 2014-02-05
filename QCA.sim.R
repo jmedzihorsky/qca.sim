@@ -1,16 +1,16 @@
-fsQCA.sim<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, min.n.cut, max.n.cut, reps, plot.legend, ...){
+QCA.sim<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, min.n.cut, max.n.cut, reps, plot, plot.legend, ...){
   
   library(ggplot2)
   
   if(!missing(conditions)){
-    # Apply fsQCA.sim.inclcut across different n.cut values
+    # Apply QCA.sim.inclcut across different n.cut values
     out<-lapply(X=min.n.cut:max.n.cut, FUN=function(x){
-      as.data.frame(fsQCA.sim.inclcut(data=data, outcome=outcome, conditions=conditions, min.incl.cut=min.incl.cut, max.incl.cut=max.incl.cut, n.cut=x, reps=reps, ...))
+      as.data.frame(QCA.sim.inclcut(data=data, outcome=outcome, conditions=conditions, min.incl.cut=min.incl.cut, max.incl.cut=max.incl.cut, n.cut=x, reps=reps, ...))
     })
   }else {
-    # Apply fsQCA.sim.inclcut across different n.cut values
+    # Apply QCA.sim.inclcut across different n.cut values
     out<-lapply(X=min.n.cut:max.n.cut, FUN=function(x){
-      as.data.frame(fsQCA.sim.inclcut(data=data, outcome=outcome, min.incl.cut=min.incl.cut, max.incl.cut=max.incl.cut, n.cut=x, reps=reps, ...))
+      as.data.frame(QCA.sim.inclcut(data=data, outcome=outcome, min.incl.cut=min.incl.cut, max.incl.cut=max.incl.cut, n.cut=x, reps=reps, ...))
     })
   }
    
@@ -35,6 +35,13 @@ fsQCA.sim<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, min.n
   })
   
   # Plots
+  if(missing(plot)){
+    plot<-F
+  }
+  if(missing(plot.legend)){
+    plot.legend<-"solutions"
+  }
+  if(plot){
   if(plot.legend=="solutions"){
     plot<-ggplot(data=results, aes(x=incl.cut0, y=incl.cut1))+
       geom_point(aes(color=config))+scale_color_hue(c=150, l=60, name="Configuration")+
@@ -58,4 +65,8 @@ fsQCA.sim<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, min.n
       guides(col=F)+facet_wrap(~n.cut, ncol=2)   
   }
   return(list("plot"=plot, "results"=results[,-4], "legend"=legend))
+  } else{
+    return(list("results"=results[,-4], "legend"=legend))
+    
+  }
 }

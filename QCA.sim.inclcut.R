@@ -1,4 +1,4 @@
-fsQCA.sim.inclcut<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, n.cut, reps, ...){
+QCA.sim.inclcut<-function(data, outcome, conditions, min.incl.cut, max.incl.cut, n.cut, reps, ...){
   
   library(QCA)
   library(plyr)

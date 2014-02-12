@@ -1,0 +1,13 @@
+Package: qca.sim
+Type: Package
+Title: qca.sim
+Version: 0.0
+Date: 2014-02-12
+Authors@R: person("Chris", "Krogslund", 
+                  role = c("aut", "cre"), 
+                  email = "ckrogslund@berkeley.edu")
+Author: Chris Krogslund <ckrogslund@berkeley.edu>
+Maintainer: Chris Krogslund <ckrogslund@berkeley.edu>
+Depends: ggplot2 XML QCA plyr
+Description: Chris Krogslund's QCA package
+License: GPL (>= 2)

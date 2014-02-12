@@ -8,6 +8,6 @@ Authors@R: person("Chris", "Krogslund",
                   email = "ckrogslund@berkeley.edu")
 Author: Chris Krogslund <ckrogslund@berkeley.edu>
 Maintainer: Chris Krogslund <ckrogslund@berkeley.edu>
-Depends: ggplot2 XML QCA plyr
+Depends: ggplot2, XML, QCA, plyr
 Description: Chris Krogslund's QCA package
 License: GPL (>= 2)
